@@ -1,0 +1,36 @@
+<!doctype html>
+<html ng-app="app1">
+<head>
+	<style type="text/css">
+  input.ng-invalid.ng-touched {
+    background-color: #FA787E;
+  }
+
+  .css-form input.ng-valid.ng-touched {
+    background-color: #78FA89;
+  }
+	</style>
+</head>
+<body ng-controller='worldController'>
+<h1>Hello {{ name }}<h1>
+<!--<div ng-controller='worldController'>{{greet()}}</div> -->
+<form name="form" novalidate>
+Name: <input type="text" ng-model="name" name="user" required />
+<div ng-show="form.$submitted || form.user.$touched"> 
+<span ng-show="form.user.$error.required">Please tell us your name</span>
+</div>
+email: <input type="email" ng-model="email" required />
+
+</form>
+<table class="col-md-8">
+<tr ng-repeat="stock in stocks">
+<td>{{stock.ticker}}</td><td>{{stock.company}}</td>
+</tr>
+</table>
+<!--<input type="text" name="name" ng-model="name">-->
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>	
+<script type="text/javascript" src="js/app1.js"></script>
+<script type="text/javascript" src="js/app2.js"></script>
+<!-- Latest compiled and minified JavaScript -->
+</body>
+</html>
